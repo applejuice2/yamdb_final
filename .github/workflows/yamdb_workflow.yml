@@ -20,6 +20,7 @@ jobs:
 
     - name: Test with flake8 and django tests
       run: |
+        isort .
         python -m flake8
         cd api_yamdb/
         pytest
