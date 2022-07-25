@@ -1,6 +1,6 @@
-# «YaMDb» 
-## _Твоё мнение важно_ :+1:
 ![yamdb](https://i.postimg.cc/WzwqvT6y/Snimok-ekrana-2022-07-19-v-023803-transformed.jpg) 
+
+
 ![example workflow](https://github.com/applejuice2/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)  
   
 Проект **YaMDb** собирает **отзывы (Review)** пользователей на **произведения (Titles)**. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список **категорий (Category)** может расширяться администратором (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»).
