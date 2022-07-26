@@ -22,6 +22,8 @@
 
 В каждой категории есть **произведения**: книги, фильмы или музыка. Произведению может быть присвоен **жанр (Genre)** из списка предустановленных (например, «Сказка», «Рок» или «Артхаус»).
 
+Развёрнутый проект можно посмотреть по ссылке - v1ceo.zapto.org
+
 ### Ресурсы API YaMDb
 
 - Ресурс `auth`: аутентификация.
@@ -33,7 +35,7 @@
 - Ресурс `comments`: комментарии к отзывам. Комментарий привязан к определённому отзыву.
 Каждый ресурс описан в документации Redoc: указаны эндпоинты (адреса, по которым можно сделать запрос), разрешённые типы запросов, права доступа и дополнительные параметры, если это необходимо.
 
-Более подробную информацию вы сможете найти по ссылке - [http://localhost:8000/redoc/](http://localhost/redoc/)
+Более подробную информацию вы сможете найти по ссылке - [http://localhost/redoc/](http://localhost/redoc/)
 
 
 ### Пользовательские роли
@@ -152,7 +154,173 @@ sudo docker-compose exec web python manage.py loaddata fixtures.json
 ```
 
 
+## Некоторые примеры запросов к API:
+1. Регистрация нового пользователя:
+
+Request (POST-запрос):
+```sh
+http://127.0.0.1:8000/api/v1/auth/signup/
+```
+
+```sh
+{
+
+    "email": "string",
+    "username": "string"
+
+}
+```
+
+Response:
+```sh
+{
+
+    "email": "string",
+    "username": "string"
+
+}
+```
+
+2. Получение Токена:
+
+Request (POST-запрос):
+```sh
+http://127.0.0.1:8000/api/v1/auth/token/
+```
+
+```sh
+{
+
+    "username": "string",
+    "confirmation_code": "string"
+
+}
+```
+
+Response:
+```sh
+{
+
+    "token": "string"
+
+}
+```
+
+## Примеры запросов
+
+1. Просмотреть список всех произведений:
+
+Request (GET-запрос):
+```sh
+http://127.0.0.1:8000/api/v1/titles/
+```
+
+Response:
+```sh
+[
+
+{
+
+    "count": 0,
+    "next": "string",
+    "previous": "string",
+    "results": 
+
+[
+
+{
+
+    "id": 0,
+    "name": "string",
+    "year": 0,
+    "rating": 0,
+    "description": "string",
+    "genre": 
+
+[
+
+    {}
+
+],
+"category": 
+
+                {
+                    "name": "string",
+                    "slug": "string"
+                }
+            }
+        ]
+    }
+
+]
+```
+
+
+2. Добавить отзыв к произведению
+
+Request (POST-запрос):
+```sh
+http://127.0.0.1:8000/api/v1/titles/{title_id}/reviews/
+```
+
+```sh
+{
+
+    "text": "string",
+    "score": 1
+
+}
+```
+
+Response:
+```sh
+{
+
+    "id": 0,
+    "text": "string",
+    "author": "string",
+    "score": 1,
+    "pub_date": "2019-08-24T14:15:22Z"
+
+}
+```
+
+3. Изменить данные своей учётной записи:
+
+Request (PATCH-запрос):
+```sh
+http://127.0.0.1:8000/api/v1/users/me/
+```
+
+```sh
+{
+
+    "username": "string",
+    "email": "user@example.com",
+    "first_name": "string",
+    "last_name": "string",
+    "bio": "string"
+
+}
+```
+
+Response:
+```sh
+{
+
+    "username": "string",
+    "email": "user@example.com",
+    "first_name": "string",
+    "last_name": "string",
+    "bio": "string",
+    "role": "user"
+
+}
+```
+
+
 ## Авторы проекта:
 - [Влад Иванов](https://github.com/applejuice2/)
 - [Алексей Ананченко](https://github.com/AlexeyAnanchenko/)
 - [Роман Швидкий](https://github.gitop.top/FLI84/)
+
