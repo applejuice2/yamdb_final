@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='secretkey')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['51.250.107.162', 'localhost', 'yamdbv1ceo.sytes.net']
 
 
 INSTALLED_APPS = [
