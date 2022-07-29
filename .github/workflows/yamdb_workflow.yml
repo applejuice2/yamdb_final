@@ -54,11 +54,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker-compose stop
-            sudo docker-compose rm web
-            rm .env
-            touch .env
             sudo docker pull v1ceo/yamdb:latest
+            sudo docker stop
+            sudo docker-compose rm web
+            touch .env
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
@@ -68,13 +67,7 @@ jobs:
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo MAIL=${{ secrets.MAIL }} >> .env
             echo MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} >> .env
-            sudo docker-compose up -d --build web
-            sudo docker-compose start
-            sudo docker-compose exec web python manage.py makemigrations
-            sudo docker-compose exec web python manage.py migrate
-            sudo docker-compose exec web python manage.py collectstatic --no-input
-            sudo docker-compose exec web python manage.py loaddata fixtures.json
-            sudo docker system prune -af
+            sudo docker-compose up -d
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
