@@ -69,7 +69,7 @@ jobs:
             echo MAIL=${{ secrets.MAIL }} >> .env
             echo MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} >> .env
             sudo docker-compose up -d --build web
-            sudo docker-compose up -d
+            sudo docker-compose start
             sudo docker-compose exec web python manage.py makemigrations
             sudo docker-compose exec web python manage.py migrate
             sudo docker-compose exec web python manage.py collectstatic --no-input
