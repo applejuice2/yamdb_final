@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker-compose stop
+            sudo docker-compose down
             sudo docker-compose rm web
             rm .env
             touch .env
@@ -73,7 +73,6 @@ jobs:
             sudo docker-compose exec web python manage.py migrate
             sudo docker-compose exec web python manage.py collectstatic --no-input
             sudo docker-compose exec web python manage.py loaddata fixtures.json
-            sudo docker-compose restart
             sudo docker system prune -af
   send_message:
     runs-on: ubuntu-latest
