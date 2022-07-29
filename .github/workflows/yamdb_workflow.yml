@@ -54,8 +54,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker-compose stop
-            sudo docker-compose rm web
+            docker-compose rm -s -v web
             rm .env
             touch .env
             sudo docker pull v1ceo/yamdb:latest
@@ -69,6 +68,7 @@ jobs:
             echo MAIL=${{ secrets.MAIL }} >> .env
             echo MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} >> .env
             sudo docker-compose up -d
+            sudo docker-compose exec web python manage.py makemigrations
             sudo docker-compose exec web python manage.py migrate
             sudo docker-compose exec web python manage.py collectstatic --no-input
             sudo docker-compose exec web python manage.py loaddata fixtures.json
