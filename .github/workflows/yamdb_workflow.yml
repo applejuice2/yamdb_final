@@ -68,6 +68,7 @@ jobs:
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo MAIL=${{ secrets.MAIL }} >> .env
             echo MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} >> .env
+            docker-compose up -d --build web
             sudo docker-compose up -d
             sudo docker-compose exec web python manage.py makemigrations
             sudo docker-compose exec web python manage.py migrate
