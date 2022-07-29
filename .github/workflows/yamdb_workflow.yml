@@ -54,7 +54,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker-compose rm -s -v web
+            sudo docker-compose stop
+            sudo docker-compose rm web
             rm .env
             touch .env
             sudo docker pull v1ceo/yamdb:latest
