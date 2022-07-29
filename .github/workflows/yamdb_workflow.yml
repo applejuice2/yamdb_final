@@ -58,7 +58,7 @@ jobs:
             sudo docker-compose rm web
             sudo docker pull v1ceo/yamdb:latest
             touch .env
-	    sudo docker pull v1ceo/yamdb:latest
+	          sudo docker pull v1ceo/yamdb:latest
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
