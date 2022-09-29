@@ -15,7 +15,7 @@
 [![GitHub%20Actions](https://img.shields.io/badge/-GitHub%20Actions-464646?style=flat&logo=GitHub%20actions&logoColor=FFFFFF&color=00B2FF )](https://github.com/features/actions)
 [![Yandex.Cloud](https://img.shields.io/badge/-Yandex.Cloud-464646?style=flat&logo=Yandex.Cloud&logoColor=FFFFFF&color=00B2FF)](https://cloud.yandex.ru/)
   
-  
+### Общая информация
 Проект **YaMDb** собирает **отзывы (Review)** пользователей на **произведения (Titles)**. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список **категорий (Category)** может расширяться администратором (например, можно добавить категорию «Изобразительное искусство», «Ювелирка»).
 
 Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
@@ -23,6 +23,11 @@
 В каждой категории есть **произведения**: книги, фильмы или музыка. Произведению может быть присвоен **жанр (Genre)** из списка предустановленных (например, «Сказка», «Рок» или «Артхаус»).
 
 Развёрнутый проект можно посмотреть по ссылке - [http://yamdbv1ceo.sytes.net/](http://yamdbv1ceo.sytes.net/)
+
+### Требования
+
+- Python 3.7+
+- Работает на macOS, Windows, Linux
 
 ### Ресурсы API YaMDb
 
