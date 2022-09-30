@@ -26,7 +26,7 @@
 
 ### Требования
 
-- Python 3.7+
+- Python 3.8+
 - Работает на macOS, Windows, Linux
 
 ### Ресурсы API YaMDb
